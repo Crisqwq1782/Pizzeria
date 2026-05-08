@@ -7,7 +7,7 @@ const Pizza = () => {
 
   const getData = async () => {
     try {
-      const response = await fetch("https://pizzeria-9nw7.onrender.com");
+      const response = await fetch("https://pizzeria-9nw7.onrender.com/api/pizzas/p001");
       const data = await response.json();
       setPizza(data);
     } catch (error) {
