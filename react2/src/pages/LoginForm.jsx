@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -25,33 +27,33 @@ const LoginForm = () => {
     }
 
     return (
-        <form className="LoginForm" onSubmit={handleSubmit}>
-            <div>
-                <h2>Login</h2>
-                <br/>
+        <div className="form-container">
+        <form className="form-card">
+            <h2>Iniciar Sesión</h2>
+            <div className="form-group">
                 <label htmlFor="email">Email:</label>
                 <input 
                     type="email" 
                     id="email" 
-                    name="email" 
                     placeholder="example@gmail.com" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                 />
             </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+            <div className="form-group">
+                <label htmlFor="password">Contraseña:</label>
                 <input 
                     type="password" 
                     id="password" 
-                    name="password" 
-                    placeholder="Enter your password" 
+                    placeholder="Ingresa tu contraseña" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
                 />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" onClick={handleSubmit} className="btn-submit">Iniciar Sesión</button>
+            <p className="form-link">¿No tienes cuenta? <button type="button" onClick={() => navigate('/register')} className="btn-link">Regístrate</button></p>
         </form>
+        </div>
     );
 };
 

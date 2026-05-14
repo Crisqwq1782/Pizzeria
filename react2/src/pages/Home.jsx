@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import Header from "./Header";
-import CardPizza from "./CardPizza";
+import Header from "../components/Header";
+import CardPizza from "../components/CardPizza";
 import { Container, Spinner } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
 export default function Home() {
   const [pizzas, setPizzas] = useState([]);
@@ -28,6 +30,7 @@ export default function Home() {
   );
 
   return (
+
     <main>
       <Header />
       <section style={{
@@ -51,6 +54,7 @@ export default function Home() {
     </main>
   );
 }
+
   
 
 

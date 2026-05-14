@@ -1,25 +1,32 @@
 import './App.css'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
+import Home from './pages/Home'
 import Footer from './components/Footer'
-import Description from './components/Description'
-import { useState } from 'react'
-import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
-import Cart from './components/Cart'
-import Pizza from './components/Pizza'
+import LoginForm from './pages/LoginForm'
+import RegisterForm from './pages/RegisterForm'
+import Cart from './pages/Cart'
+import Pizza from './pages/Pizza'
+import Profile from './pages/Profile'
+import NotFound from './pages/NotFound'
+import { Routes, Route } from 'react-router-dom'
+
 function App() {
   return (
-    <>
+    <div className="app-container">
       <NavBar />
-      {/* <RegisterForm /> */}
-      {/* <LoginForm /> */}
-       {/*<Home /> */}
-       {/*<Cart /> */}
-        <Pizza />
-      {/* <Description text="Este es un ejemplo de descripción." /> */} 
+      <div className="routes-wrapper">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/pizza/:id" element={<Pizza />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
-    </>
+    </div>
   )
 }
 

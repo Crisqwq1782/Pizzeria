@@ -2,6 +2,7 @@ import { useState } from "react";
 import { pizzaCart as initialCart } from "../data/pizzas"; //Array inicial
 
 
+
 const Cart = () => {
   const [cart, setCart] = useState(initialCart);
 

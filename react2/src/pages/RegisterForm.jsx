@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -32,44 +34,43 @@ const RegisterForm = () => {
 };
 
     return (
-        <form className="RegisterForm" onSubmit={handleSubmit}>
-            <div>
-                <h2>Register</h2>
-                <br/>
+        <div className="form-container">
+        <form className="form-card" onSubmit={handleSubmit}>
+            <h2>Crear Cuenta</h2>
+            <div className="form-group">
                 <label htmlFor="email">Email:</label>
                 <input 
                     type="email" 
                     id="email" 
-                    name="email" 
                     placeholder="example@gmail.com" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+            <div className="form-group">
+                <label htmlFor="password">Contraseña:</label>
                 <input 
                     type="password" 
                     id="password" 
-                    name="password" 
-                    placeholder="Enter your password" 
+                    placeholder="Ingresa tu contraseña" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
                 />
             </div>
-            <div>
-                <label htmlFor="confirmPassword">Confirm Password:</label>
+            <div className="form-group">
+                <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
                 <input 
                     type="password" 
                     id="confirmPassword" 
-                    name="confirmPassword" 
-                    placeholder="Confirm your password" 
+                    placeholder="Confirma tu contraseña" 
                     value={confirmPassword} 
                     onChange={(e) => setConfirmPassword(e.target.value)} 
                 />
             </div>
-            <button type="submit">Register</button>
+            <button type="submit" className="btn-submit">Registrarse</button>
+            <p className="form-link">¿Ya tienes cuenta? <button type="button" onClick={() => navigate('/login')} className="btn-link">Inicia sesión</button></p>
         </form>
+        </div>
     );
 };
 
