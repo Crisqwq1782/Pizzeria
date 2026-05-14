@@ -11,7 +11,7 @@ export default function Home() {
 
   const getData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/pizzas");
+      const res = await fetch("https://pizzeria-9nw7.onrender.com/api/pizzas");
       const data = await res.json();
       setPizzas(data);
     } catch (error) {
